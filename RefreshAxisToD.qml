@@ -12,7 +12,7 @@
  * 08/24/2022  |  Shihao Zhou  | V1.0 | G axis Control cylinder switch
  *
  ***********************************************************************************/
-//20240627.12.37
+//20240627.12.51，now push master to oringin/master
  import QtQuick 1.1
 import com.flcnc.tube 1.0
 import "../"
