@@ -56,7 +56,7 @@ sub PatchDiff()
   SetAttribute new_element, "ModBusReg", "1002"
 
   
-  CopyFolderToTarget "data/refreshaxistod", "C:\FangLing\tube2\plugins\script\qml\fixed1"
+  CopyFolderToTarget "data/RefreshAxisToD", "C:\FangLing\tube2\plugins\script\qml\fixed1"
 
   TO_VERSION = VERSION_PATCH
 end sub

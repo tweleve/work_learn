@@ -1,4 +1,4 @@
-/*********************************************************************************//***
+/************************************************************************************
  * @copyright Copyright 2024 Shanghai Fangling Software Co., Ltd. All Rights Reserved.
  * @file      RefreshAxisToD.qml
  * @version   V1.0
@@ -30,8 +30,8 @@ Rectangle {
       id: internal_
 
       /// Axis D index 427-458
-      property int axis_x_pose_d_: 427;  //
-      property int axis_y_pose_d_: 428;  //
+      property int axis_x_pose_d_: 427;
+      property int axis_y_pose_d_: 428;
 
       // Axis index
       property int axis_x_index_: 0;
@@ -56,14 +56,21 @@ Rectangle {
       repeat: true
       running: true
       onUpdate: {
-        operation_.updateAxisToD(internal_.axis_x_index_,internal_.axis_x_pose_d_)
-        operation_.updateAxisToD(internal_.axis_y_index_,internal_.axis_y_pose_d_)
-        /*if(operation_.getPlcStatusM()){
-            operation_.updateAxisToD(internal_.axis_x_index_,internal_.axis_x_pose_d_)
-            operation_.updateAxisToD(internal_.axis_y_index_,internal_.axis_y_pose_d_)
-        }*/
+        if(operation_.getPlcStatusM()){
+          operation_.updateAxisToD(internal_.axis_x_index_,internal_.axis_x_pose_d_)
+          operation_.updateAxisToD(internal_.axis_y_index_,internal_.axis_y_pose_d_)
+        }
       }
     }
+	
+	Monitor {
+      triggeredOnStart: true
+      repeat: false
+      onUpdate: {
+        root_.visible = false;
+        root_.show = false;
+      }
+    }
 
     Parameter {
       id: param_
@@ -96,7 +103,6 @@ Rectangle {
   }
 
   Component.onCompleted: {
-    //operation_.refreshParam();
-    //operation_.initParam();
+    
   }
 }
